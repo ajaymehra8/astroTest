@@ -20,7 +20,6 @@ const DatePickerFlatpickr = ({ id, value, onChange }) => {
       maxDate: "2025-12-31",
       disableMobile: true,
       onChange: (selectedDates) => {
-        console.log(selectedDates, "original");
         const formatted = selectedDates[0]
           ? selectedDates[0].toLocaleDateString("en-CA") // gives yyyy-mm-dd
           : "";

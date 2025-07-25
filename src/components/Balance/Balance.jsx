@@ -103,7 +103,6 @@ const TransactionCard = ({
 
 const Balance = () => {
   const searchParams = useSearchParams();
-  const rechargeParam = searchParams.get("amount");
 
   const [states, setStates] = useState([]);
   const [alreadyHaveState, setAlreadyHaveState] = useState(null);
@@ -115,23 +114,22 @@ const Balance = () => {
   const [amount, setAmount] = useState(200);
 
   const { toast } = useToast();
-  const { rechargeValue } = useContext(RechargeContext);
+  const { rechargeValue ,setRechargeValue} = useContext(RechargeContext);
 
   const [balance, setBalance] = useState(null);
   const authToken = localStorage.getItem("token");
   const [amountError, setAmountError] = useState("");
 
-
   useEffect(() => {
     if (searchParams) {
       const rechargeParam = searchParams.get("amount");
-      console.log(rechargeParam," this is the param in balance file")
       if (rechargeParam) {
         setAmount(Number(rechargeParam));
+      } else {
+        setRechargeValue(200);
       }
     }
   }, [searchParams]);
-  
 
   //step 1 create order
   const createorder = async (amount) => {
@@ -320,11 +318,10 @@ const Balance = () => {
       return;
     }
   };
-  console.log(amount,"1")
 
   useEffect(() => {
     if (rechargeValue) {
-      console.log(amount,"rechargeValue Changed");
+      console.log(rechargeValue,"recharge value");
       setAmount(rechargeValue);
     }
   }, [rechargeValue]);

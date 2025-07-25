@@ -156,7 +156,6 @@ const AstrologerCard = ({
       window.location.reload();
       setModalVisible(false);
     } else if (modalButtonLabel === "RECHARGE") {
-      console.log(rechargeValue, " going from astrologer card modal");
       router.push(`/balance?amount=${rechargeValue}`);
     } else if (modalButtonLabel === "My Profile") {
       router.push("/my-profile");
