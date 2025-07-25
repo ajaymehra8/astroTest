@@ -7,6 +7,7 @@ import closeimage from '../../../../public/navbar/x.png';
 import back from '../../../../public/back icon/Back.png';
 import 'react-toastify/dist/ReactToastify.css';
 import { toast } from 'react-toastify';
+import Link from "next/link";
 
 const LoginRegisterModal = ({ onSendOTP, onClose }) => {
   const [mobile, setMobile] = useState('');
